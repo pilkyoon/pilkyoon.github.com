@@ -1,92 +1,40 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>Pilkyoon.GitHub.com by pilkyoon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>pilkyoon.gitHub.com/sub1 by pilkyoon</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Pilkyoon.GitHub.com</h1>
-      <h2 class="project-tagline"></h2>
-    </section>
+    <div class="wrapper">
+      <header>
+        <h1>pilkyoon.gitHub.com/sub1</h1>
+        <p></p>
 
-    <section class="main-content">
-      <div class="highlight highlight-source-java"><pre>pilkyoonium
-@<span class="pl-smi">NoRepositoryBean</span>
-<span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">JpaRepository</span>&lt;T, ID <span class="pl-k">extends</span> <span class="pl-e">Serializable</span>&gt; extends <span class="pl-e">PagingAndSortingRepository&lt;<span class="pl-smi">T</span>, <span class="pl-smi">ID</span>&gt;</span> {
 
-    <span class="pl-c">/*</span>
-<span class="pl-c">     * (non-Javadoc)</span>
-<span class="pl-c">     * @see org.springframework.data.repository.CrudRepository#findAll()</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">List&lt;<span class="pl-smi">T</span>&gt;</span> <span class="pl-en">findAll</span>();
+        <p class="view"><a href="https://github.com/pilkyoon">View My GitHub Profile</a></p>
 
-    <span class="pl-c">/*</span>
-<span class="pl-c">     * (non-Javadoc)</span>
-<span class="pl-c">     * @see org.springframework.data.repository.PagingAndSortingRepository#findAll(org.springframework.data.domain.Sort)</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">List&lt;<span class="pl-smi">T</span>&gt;</span> <span class="pl-en">findAll</span>(<span class="pl-smi">Sort</span> <span class="pl-v">sort</span>);
-
-    <span class="pl-c">/*</span>
-<span class="pl-c">     * (non-Javadoc)</span>
-<span class="pl-c">     * @see org.springframework.data.repository.CrudRepository#findAll(java.lang.Iterable)</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">List&lt;<span class="pl-smi">T</span>&gt;</span> <span class="pl-en">findAll</span>(<span class="pl-k">Iterable&lt;<span class="pl-smi">ID</span>&gt;</span> <span class="pl-v">ids</span>);
-
-    <span class="pl-c">/*</span>
-<span class="pl-c">     * (non-Javadoc)</span>
-<span class="pl-c">     * @see org.springframework.data.repository.CrudRepository#save(java.lang.Iterable)</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">&lt;<span class="pl-smi">S</span> extends <span class="pl-smi">T</span>&gt;</span> <span class="pl-k">List&lt;<span class="pl-smi">S</span>&gt;</span> <span class="pl-en">save</span>(<span class="pl-k">Iterable&lt;<span class="pl-smi">S</span>&gt;</span> <span class="pl-v">entities</span>);
-
-    <span class="pl-c">/**</span>
-<span class="pl-c">     * Flushes all pending changes to the database.</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">void</span> <span class="pl-en">flush</span>();
-
-    <span class="pl-c">/**</span>
-<span class="pl-c">     * Saves an entity and flushes changes instantly.</span>
-<span class="pl-c">     * </span>
-<span class="pl-c">     * @param entity</span>
-<span class="pl-c">     * @return the saved entity</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">&lt;<span class="pl-smi">S</span> extends <span class="pl-smi">T</span>&gt;</span> <span class="pl-smi">S</span> <span class="pl-en">saveAndFlush</span>(<span class="pl-smi">S</span> <span class="pl-v">entity</span>);
-
-    <span class="pl-c">/**</span>
-<span class="pl-c">     * Deletes the given entities in a batch which means it will create a single {@link Query}. Assume that we will clear</span>
-<span class="pl-c">     * the {@link javax.persistence.EntityManager} after the call.</span>
-<span class="pl-c">     * </span>
-<span class="pl-c">     * @param entities</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">void</span> <span class="pl-en">deleteInBatch</span>(<span class="pl-k">Iterable&lt;<span class="pl-smi">T</span>&gt;</span> <span class="pl-v">entities</span>);
-
-    <span class="pl-c">/**</span>
-<span class="pl-c">     * Deletes all entites in a batch call.</span>
-<span class="pl-c">     */</span>
-    <span class="pl-k">void</span> <span class="pl-en">deleteAllInBatch</span>();
-
-    <span class="pl-c">/**</span>
-<span class="pl-c">     * Returns a reference to the entity with the given identifier.</span>
-<span class="pl-c">     * </span>
-<span class="pl-c">     * @param id must not be {@literal null}.</span>
-<span class="pl-c">     * @return a reference to the entity with the given identifier.</span>
-<span class="pl-c">     * @see EntityManager#getReference(Class, Object)</span>
-<span class="pl-c">     */</span>
-    <span class="pl-smi">T</span> <span class="pl-en">getOne</span>(<span class="pl-smi">ID</span> <span class="pl-v">id</span>);
+      </header>
+      <section>
+        <div class="highlight highlight-source-java"><pre>{
+    <span class="pl-smi">String</span> a <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>aa<span class="pl-pds">"</span></span>;
+    <span class="pl-k">if</span> (<span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span><span class="pl-k">.</span>equals(a)) {
+        a <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bb<span class="pl-pds">"</span></span>;
+    }
 }</pre></div>
-
-      <footer class="site-footer">
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
-
-    </section>
-
-  
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
